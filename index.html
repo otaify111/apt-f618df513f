@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عروض الشقق</title>
+<style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d2430;--mute:#6b7280;--acc:#0f766e;--line:#e5e1d8;--dot:#d6d3cb}
+@media (prefers-color-scheme:dark){:root{--bg:#14181f;--card:#1d232d;--ink:#eef0f3;--mute:#9aa3b0;--acc:#2dd4bf;--line:#2c3441;--dot:#3a4352}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
+header{padding:22px 16px 6px;text-align:center}
+header h1{margin:0;font-size:26px;letter-spacing:-.3px}
+header p{margin:2px 0 0;color:var(--mute);font-size:14px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 14px 40px}
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);padding:10px 0 8px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row+.row{margin-top:8px}
+.sbox{flex:1 1 220px;position:relative}
+.sbox input{width:100%;padding:10px 38px 10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px}
+.sbox span{position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:.6;pointer-events:none}
+.sel{padding:9px 10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px;max-width:100%}
+.pill{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 13px;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+.pill.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.cnt{margin-inline-start:auto;color:var(--mute);font-size:14px}
+.cnt b{color:var(--ink)}
+.rst{color:var(--acc);background:none;border:none;font:inherit;font-size:14px;cursor:pointer;text-decoration:underline}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:0 0 12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+.stat b{display:block;font-size:18px}
+.stat span{font-size:12px;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:14px}
+.card{--c:#888;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column;position:relative}
+.card:hover,.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12);outline:none}
+.card::before{content:"";position:absolute;inset-inline:0;top:0;height:4px;background:var(--c);z-index:2}
+.ph{position:relative}
+.ph0{height:180px;display:grid;place-items:center;color:var(--mute);background:var(--line);font-size:15px}
+.card img{width:100%;height:180px;object-fit:cover;display:block;background:var(--line)}
+.bdg{position:absolute;bottom:8px;left:8px;display:flex;gap:6px}
+.bdg span{background:rgba(0,0,0,.65);color:#fff;border-radius:999px;padding:1px 9px;font-size:12px}
+.hrt{position:absolute;top:10px;left:8px;z-index:3}
+.band{display:flex;align-items:center;gap:6px;background:color-mix(in srgb,var(--c) 14%,var(--card));color:var(--ink);padding:5px 12px;font-size:13px;font-weight:600;border-bottom:1px solid var(--line)}
+.band bdi{direction:ltr;unicode-bidi:isolate}
+.card .b{padding:11px 13px 13px;display:flex;flex-direction:column;gap:5px;flex:1}
+.card h3{margin:0;font-size:15.5px;line-height:1.45}
+.price{color:var(--acc);font-weight:800;font-size:19px}
+.ppm{color:var(--mute);font-size:12.5px;font-weight:400}
+.meta{color:var(--mute);font-size:13.5px;display:flex;gap:10px;flex-wrap:wrap}
+.score{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.sc{font-size:12.5px;border-radius:8px;padding:2px 8px;background:color-mix(in srgb,var(--g) 15%,var(--card));border:1px solid color-mix(in srgb,var(--g) 40%,var(--line))}
+.rt{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px}
+.dots{display:inline-flex;gap:3px;align-items:center}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--dot);display:inline-block}
+.dots i.f{background:var(--c)}
+.dots i.h{background:linear-gradient(90deg,var(--c) 50%,var(--dot) 50%)}
+.dots small{margin-inline-start:6px;color:var(--mute);font-size:12px}
+.hearts{display:inline-flex;gap:2px}
+.hearts button{border:none;background:none;padding:0 1px;font-size:20px;line-height:1;cursor:pointer;filter:grayscale(1);opacity:.45}
+.hearts button.on{filter:none;opacity:1}
+.hearts.sm{background:rgba(255,255,255,.88);border-radius:999px;padding:1px 6px}
+.hearts.sm button{font-size:17px}
+.empty{text-align:center;color:var(--mute);padding:60px 0}
+dialog{border:none;border-radius:16px;padding:0;max-width:760px;width:94vw;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dh h2{margin:0;font-size:20px}
+.x{border:none;background:none;font-size:26px;cursor:pointer;color:var(--ink)}
+.db{padding:16px;max-height:80vh;overflow:auto}
+@media (max-width:600px){dialog:not(#lb){width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0}.db{max-height:calc(100dvh - 58px)}header h1{font-size:22px}.sel{flex:1 1 45%}}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin:12px 0}
+.gal img,.gal video{width:100%;height:130px;object-fit:cover;border-radius:8px;cursor:zoom-in}
+.vt{position:relative;cursor:pointer;border-radius:8px;overflow:hidden;background:#000}
+.vt video{pointer-events:none;display:block}
+.vt b{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:34px;background:rgba(0,0,0,.25)}
+#lb{max-width:none;width:100vw;height:100vh;max-height:none;background:#000;border-radius:0}
+#lb::backdrop{background:#000}
+#lb .lc{position:fixed;top:10px;left:10px;z-index:2;display:flex;gap:8px}
+#lb .lc button{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:16px;cursor:pointer}
+#lb .m{width:100vw;height:100vh;display:grid;place-items:center}
+#lb img,#lb video{max-width:100vw;max-height:100vh;object-fit:contain}
+.desc{white-space:pre-wrap;background:var(--bg);border-radius:10px;padding:12px;margin-top:8px}
+button.btn{background:var(--acc);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:15px;cursor:pointer;margin:8px 8px 0 0}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.tags span{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 10px;font-size:13px}
+.box{--c:#888;border:1px solid color-mix(in srgb,var(--c) 40%,var(--line));border-inline-start:5px solid var(--c);background:color-mix(in srgb,var(--c) 7%,var(--card));border-radius:10px;padding:10px 12px;margin:10px 0}
+.box h4{margin:0 0 4px;font-size:15px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.box p{margin:2px 0;font-size:14px}
+.box .cf{color:var(--mute);font-size:12px}
+.ess{display:grid;gap:4px;margin-top:6px}
+.er{display:grid;grid-template-columns:minmax(120px,38%) 1fr;gap:8px;font-size:14px;padding:5px 8px;border-radius:8px;background:color-mix(in srgb,#16a34a 10%,var(--card))}
+.er.m{background:color-mix(in srgb,#f59e0b 20%,var(--card));font-weight:600}
+.er.pp{background:color-mix(in srgb,#eab308 14%,var(--card))}
+.miss{color:#b45309;font-size:13px;font-weight:600;margin-top:6px}
+@media (prefers-color-scheme:dark){.miss{color:#fbbf24}}
+.ed{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:0 8px;cursor:pointer;font-size:13px;font-family:inherit}
+.sec{--c:#888;border:1px solid color-mix(in srgb,var(--c) 35%,var(--line));border-inline-start:5px solid var(--c);border-radius:10px;margin:8px 0;background:color-mix(in srgb,var(--c) 6%,var(--card))}
+.sec>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:12px;min-height:46px;cursor:pointer;font-weight:700;user-select:none}
+.sec>summary::-webkit-details-marker{display:none}
+.sec>summary .sm{margin-inline-start:auto;font-weight:400;font-size:13px;color:var(--mute)}
+.sec>summary::after{content:"▾";font-size:20px;color:var(--c);transition:transform .2s}
+.sec[open]>summary::after{transform:rotate(180deg)}
+.sec>summary:hover{background:color-mix(in srgb,var(--c) 10%,transparent)}
+.sec .in{padding:0 12px 12px}
+.ev{padding:6px 0;border-top:1px dashed var(--line)}.ev:first-child{border-top:0}
+.ev .t{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.ev p{margin:2px 0 0;font-size:14px}
+.cf{color:var(--mute);font-size:12px}
+.tb{display:flex;justify-content:flex-end;margin-bottom:6px}
+.int{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 0;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,#e11d48 8%,var(--card));border:1px solid color-mix(in srgb,#e11d48 30%,var(--line))}
+.btn.gray{background:#6b7280}
+.refs{font-size:12px;color:var(--mute)}
+.refs a{color:var(--acc)}
+</style>
+</head>
+<body>
+<header><h1 id="t"></h1><p>شقق للبيع — الشروق والتجمع</p></header>
+<div class="wrap">
+<div class="bar">
+ <div class="row"><div class="sbox"><span>🔎</span><input id="q" type="search" placeholder="ابحث: منطقة، بروكر، دور، كلمة من الوصف…" oninput="setQ(this.value)"></div>
+  <select class="sel" id="sort" onchange="setS(this.value)" aria-label="ترتيب"></select></div>
+ <div class="row">
+  <select class="sel" id="fs" onchange="setF(this.value||null)" aria-label="المصدر"></select>
+  <select class="sel" id="fc" onchange="setC(this.value)" aria-label="المدينة"><option value="">كل المدن</option><option value="sh">الشروق</option><option value="nc">التجمع / القاهرة الجديدة</option></select>
+  <select class="sel" id="fp" onchange="setP(this.value)" aria-label="الميزانية"><option value="">أي سعر</option><option value="2000000">لحد 2 مليون</option><option value="2300000">لحد 2.3 مليون</option><option value="2600000">لحد 2.6 مليون</option><option value="3000000">لحد 3 مليون</option></select>
+  <button class="pill" id="fv" onclick="togg('fav')">❤️ المفضلة</button>
+  <button class="pill" id="fm" onclick="togg('vid')">🎬 فيها فيديو</button>
+  <span class="cnt" id="cnt"></span></div>
+</div>
+<div class="stats" id="st"></div>
+<div class="grid" id="g"></div></div>
+<dialog id="lb"><div class="lc"><button onclick="fs()">⛶ ملء الشاشة</button><button onclick="closeLb()">✕ إغلاق</button></div><div class="m" id="lm"></div></dialog>
+<dialog id="d"><div class="dh"><h2 id="dt"></h2><button class="x" onclick="d.close()">×</button></div><div class="db" id="db"></div></dialog>
+<script src="data.js"></script>
+<script>
+const $=id=>document.getElementById(id),L=window.LISTINGS||[],S=window.SITE||{},SRC=window.SOURCES||{};
+$("t").textContent=S.name||"عروض الشقق";
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=n=>Number(n).toLocaleString("en-US");
+const store={get(){try{return JSON.parse(localStorage.getItem("interest")||"{}")}catch(e){return{}}},set(o){try{localStorage.setItem("interest",JSON.stringify(o))}catch(e){}pushState()}};
+let interest=store.get(),filter=null;
+let _pt=null;
+function pushState(){}
+const ed={get(){try{return JSON.parse(localStorage.getItem("edits")||"{}")}catch(e){return{}}},set(o){try{localStorage.setItem("edits",JSON.stringify(o))}catch(e){}pushState()}};
+let edits=ed.get();const BASE=JSON.parse(JSON.stringify(L));
+function applyEdits(){L.forEach((a,i)=>{const b=JSON.parse(JSON.stringify(BASE[i])),e=edits[a.id]||{};Object.keys(a).forEach(k=>delete a[k]);Object.assign(a,b);if(e.fields)Object.assign(a,e.fields);a.info=Object.assign({},b.info);if(e.info)for(const k in e.info){if(e.info[k])a.info[k]=e.info[k];else delete a.info[k]}a.notes=e.notes||""})}
+applyEdits();
+const meta=a=>[a.area&&`📐 ${esc(a.area)} م²`,a.rooms&&`🛏 ${esc(a.rooms)} غرف`,a.baths&&`🚿 ${esc(a.baths)} حمام`,a.floor&&`🏢 دور ${esc(a.floor)}`].filter(Boolean).join("");
+const src=a=>SRC[a.source]||{name:"غير محدد",emoji:"❔",color:"#888"};
+const ESS=[["docs","📄 الورق","الورق"],["elec","⚡ كهرباء","كهرباء"],["water","💧 مياه","مياه"],["gas","🔥 غاز","غاز"],["elevator","🛗 الأسانسير","الأسانسير"],["fees","💰 المصاريف","المصاريف"]];
+const missing=a=>ESS.filter(([k])=>!a.info?.[k]?.v);
+let essEdit=null;
+const essBody=a=>{
+ if(essEdit===a.id)return`<div class="ess">${ESS.map(([k,l])=>{const o=a.info?.[k]||{};return`<div class="er" style="grid-template-columns:1fr"><span>${l}</span><input id="ei_${k}" value="${esc(o.v||"")}" placeholder="فاضية = ناقصة" style="width:100%;padding:6px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink)"><label style="font-size:13px"><input type="checkbox" id="ep_${k}" ${o.p?"checked":""}> جزئية / محتاجة تأكيد</label></div>`}).join("")}</div><button class="btn" onclick="saveAll('${a.id}')">حفظ</button><button class="btn gray" onclick="cancelAll()">إلغاء</button>`;
+ return`<div class="tb"><button class="ed" onclick="editAll('${a.id}')">✏️ تعديل</button></div><div class="ess">${ESS.map(([k,l])=>{const o=a.info?.[k];return o?.v?`<div class="er ${o.p?"pp":""}"><span>${l}</span><span>${o.p?"⚠️":"✅"} ${esc(o.v)}</span></div>`:`<div class="er m"><span>${l}</span><span>❓ ناقص</span></div>`}).join("")}</div>`};
+const wa=a=>{const s=src(a);return s.phone?`https://wa.me/${s.phone}?text=${encodeURIComponent("السلام عليكم، بخصوص إعلان: "+a.title)}`:"#"};
+const ppm=a=>a.priceNum&&a.area?`≈ ${fmt(Math.round(a.priceNum/a.area))} ج/م²`:"";
+function dots(score){if(score==null)return'<span class="dots"><small>غير محدد</small></span>';
+ let h="";for(let i=1;i<=5;i++)h+=`<i class="${score>=i?"f":score>=i-.5?"h":""}"></i>`;return`<span class="dots">${h}<small>${score}/5</small></span>`}
+const LV=["غير مقيَّمة","مش مهتم","مهتم شوية","مهتم","مهتم جدًا","أولويتي الأولى"];
+function hearts(id,big,sm){const v=interest[id]||0;let h="";for(let i=1;i<=5;i++)h+=`<button class="${v>=i?"on":""}" title="${LV[i]}" onclick="event.stopPropagation();setI('${id}',${i})">❤️</button>`;return`<span class="hearts${sm?" sm":""}" ${big?'style="font-size:1.3em"':""}>${h}</span>`}
+function setI(id,n){interest[id]=(interest[id]===n)?0:n;store.set(interest);render();if($("d").open){const i=L.findIndex(x=>x.id===id);if(i>=0)openL(i,true)}}
+const flt=(()=>{try{return JSON.parse(localStorage.getItem("flt")||"{}")}catch(e){return{}}})();
+let Q=flt.q||"",SORT=flt.s||"add",CITY=flt.c||"",PMAX=flt.p||"",ONLYFAV=!!flt.fav,ONLYVID=!!flt.vid;filter=flt.src||null;
+const saveFlt=()=>{try{localStorage.setItem("flt",JSON.stringify({q:Q,s:SORT,c:CITY,p:PMAX,fav:ONLYFAV,vid:ONLYVID,src:filter}))}catch(e){}pushState()};
+const city=a=>/التجمع|القاهرة الجديدة|بيت الوطن|المستثمرين|القطامية/.test(a.location+" "+a.title)?"nc":"sh";
+const SORTS={add:["ترتيب الإضافة",null],pa:["السعر: الأقل",a=>a.priceNum||9e9],pd:["السعر: الأعلى",a=>-(a.priceNum||0)],mp:["سعر المتر: الأقل",a=>a.priceNum&&a.area?a.priceNum/a.area:9e9],deal:["أفضل فرصة",a=>-(a.deal?.score??-1)],zone:["أحسن منطقة",a=>-(a.zone?.score??-1)],love:["اهتمامي أعلى",a=>-(interest[a.id]||0)],full:["الأكمل معلومات",a=>missing(a).length]};
+const setQ=v=>{Q=v.trim();saveFlt();render()},setS=v=>{SORT=v;saveFlt();render()},setC=v=>{CITY=v;saveFlt();render()},setP=v=>{PMAX=v;saveFlt();render()};
+function togg(k){if(k==="fav")ONLYFAV=!ONLYFAV;else ONLYVID=!ONLYVID;saveFlt();render()}
+function resetAll(){Q="";SORT="add";CITY="";PMAX="";ONLYFAV=ONLYVID=false;filter=null;saveFlt();render()}
+const hay=a=>[a.title,a.location,a.description,a.price,a.floor,(a.extras||[]).join(" "),(a.features||[]).join(" "),src(a).name,a.sourceNote].join(" ").toLowerCase();
+const gcol=s=>s==null?"#9ca3af":s>=4?"#16a34a":s>=3?"#ca8a04":"#dc2626";
+function render(){
+ $("sort").innerHTML=Object.entries(SORTS).map(([k,v])=>`<option value="${k}" ${k===SORT?"selected":""}>↕ ${v[0]}</option>`).join("");
+ $("fs").innerHTML=`<option value="">كل المصادر (${L.length})</option>`+Object.entries(SRC).map(([k,s])=>{const n=L.filter(a=>a.source===k).length;return n?`<option value="${k}" ${filter===k?"selected":""}>${s.emoji} ${esc(s.name)} (${n})</option>`:""}).join("");
+ $("fc").value=CITY;$("fp").value=PMAX;if($("q").value!==Q)$("q").value=Q;
+ $("fv").classList.toggle("on",ONLYFAV);$("fm").classList.toggle("on",ONLYVID);
+ let list=L.map((a,i)=>[a,i]).filter(([a])=>(!filter||a.source===filter)&&(!CITY||city(a)===CITY)&&(!PMAX||(a.priceNum&&a.priceNum<=+PMAX))&&(!ONLYFAV||interest[a.id])&&(!ONLYVID||a.videos?.length)&&(!Q||Q.toLowerCase().split(/\s+/).every(w=>hay(a).includes(w))));
+ const f=SORTS[SORT][1];if(f)list.sort((x,y)=>f(x[0])-f(y[0]));
+ const act=!!(Q||CITY||PMAX||ONLYFAV||ONLYVID||filter);
+ $("cnt").innerHTML=`<b>${list.length}</b> من ${L.length} ${act?'<button class="rst" onclick="resetAll()">مسح الفلاتر</button>':""}`;
+ const pr=list.map(([a])=>a.priceNum).filter(Boolean).sort((x,y)=>x-y),pm=list.map(([a])=>a.priceNum&&a.area?a.priceNum/a.area:0).filter(Boolean).sort((x,y)=>x-y);
+ const med=a=>a.length?a[Math.floor(a.length/2)]:0;
+ $("st").innerHTML=list.length?[["أقل سعر",pr[0]?fmt(pr[0]):"—"],["أعلى سعر",pr.length?fmt(pr[pr.length-1]):"—"],["متوسط سعر المتر",pm.length?fmt(Math.round(med(pm))):"—"],["❤️ مفضلة",list.filter(([a])=>interest[a.id]).length]].map(([k,v])=>`<div class="stat"><b>${v}</b><span>${k}</span></div>`).join(""):"";
+ $("g").innerHTML=list.length?list.map(([a,i])=>{const s=src(a),m=missing(a);return`<div class="card" tabindex="0" style="--c:${s.color}" onclick="openL(${i})" onkeydown="if(event.key==='Enter')openL(${i})">
+<div class="ph">${a.photos?.[0]?`<img src="${esc(a.photos[0])}" alt="" loading="lazy">`:`<div class="ph0">📷 مفيش صور لسه</div>`}<div class="hrt">${hearts(a.id,false,true)}</div><div class="bdg">${a.videos?.length?"<span>🎬 فيديو</span>":""}${a.audios?.length?`<span>🎙️ ${a.audios.length}</span>`:""}${a.photos?.length?`<span>📷 ${a.photos.length}</span>`:""}</div></div>
+<div class="band"><span>${s.emoji}</span><bdi>${esc(s.name)}</bdi></div>
+<div class="b"><h3>${esc(a.title)}</h3><div class="price">${esc(a.price)} <span class="ppm">${ppm(a)}</span></div>
+<div class="meta">${meta(a)}</div><div class="meta">📍 ${esc(a.location)}</div>
+<div class="score"><span class="sc" style="--g:${gcol(a.deal?.score)}">🎯 فرصة ${a.deal?.score??"؟"}</span><span class="sc" style="--g:${gcol(a.zone?.score)}">🏙️ منطقة ${a.zone?.score??"؟"}</span>${a.sameAs?.length?'<span class="sc" style="--g:#2563eb">🔁 نفس الشقة عند '+(a.sameAs.length+1)+'</span>':""}<span class="sc" style="--g:${m.length?"#f59e0b":"#16a34a"}">${m.length?"❓ ناقص "+m.length:"✅ مكتملة"}</span></div></div></div>`}).join(""):'<div class="empty">مفيش شقق بالفلاتر دي<br><button class="rst" onclick="resetAll()">مسح الفلاتر</button></div>'}
+const FLD=[["title","العنوان"],["price","السعر (نص)"],["priceNum","السعر (رقم للحساب)"],["area","المساحة م²"],["rooms","عدد الغرف"],["baths","الحمامات"],["floor","الدور"],["location","الموقع"],["description","الوصف (نص الإعلان)"]];
+const idx=id=>L.findIndex(x=>x.id===id);
+function saveE(id,fn){const e=edits[id]=edits[id]||{};fn(e);ed.set(edits);applyEdits();render();openL(idx(id),true)}
+function editAll(id){essEdit=id;openL(idx(id),true)}
+function cancelAll(){const id=essEdit;essEdit=null;openL(idx(id),true)}
+function saveAll(id){saveE(id,e=>{e.info=e.info||{};ESS.forEach(([k])=>{const v=$("ei_"+k).value.trim(),p=$("ep_"+k).checked;e.info[k]=v?{v,p}:null})});essEdit=null;openL(idx(id),true)}
+function saveNote(id){const v=$("nt").value;const e=edits[id]=edits[id]||{};e.notes=v;ed.set(edits);L[idx(id)].notes=v}
+function saveF(id){const f={};FLD.forEach(([k])=>{let v=$("f_"+k).value.trim();if(k==="priceNum")v=v?Number(v.replace(/,/g,"")):0;f[k]=v});saveE(id,e=>{e.fields=f})}
+function resetF(id){saveE(id,e=>{delete e.fields})}
+function setF(k){filter=k;saveFlt();render()}
+function openM(t,u){const lb=$("lb");$("lm").innerHTML=t==="v"?`<video src="${u}" controls autoplay></video>`:`<img src="${u}">`;lb.showModal();if(t==="v")fs()}
+function fs(){const e=$("lm").firstElementChild;const f=e&&(e.requestFullscreen||e.webkitRequestFullscreen);if(f)f.call(e).catch(()=>{})}
+function closeLb(){const v=$("lm").querySelector("video");if(v)v.pause();if(document.fullscreenElement)document.exitFullscreen();$("lb").close();$("lm").innerHTML=""}
+$("lb").addEventListener("cancel",()=>{const v=$("lm").querySelector("video");if(v)v.pause()});
+const OPEN={};
+const sec=(key,c,title,sm,body,def)=>`<details class="sec" style="--c:${c}" ${(OPEN[key]??def)?"open":""} ontoggle="OPEN['${key}']=this.open"><summary><span>${title}</span><span class="sm">${sm||""}</span></summary><div class="in">${body}</div></details>`;
+const evRow=(t,o)=>o?`<div class="ev"><div class="t"><b>${t}</b>${dots(o.score)}<span class="cf">ثقة: ${esc(o.conf||"—")}</span></div><p>${esc(o.note)}</p></div>`:"";
+function openL(i,keep){const a=L[i],s=src(a);$("dt").textContent=a.title;
+const gal=`<div class="gal">${(a.videos||[]).map(v=>`<div class="vt" onclick="openM('v','${esc(v)}')"><video src="${esc(v)}#t=0.5" muted preload="metadata"></video><b>▶</b></div>`).join("")}${(a.photos||[]).map(p=>`<img src="${esc(p)}" onclick="openM('i','${esc(p)}')" loading="lazy">`).join("")}</div>`;
+const same=(a.sameAs||[]).map(id=>L[idx(id)]).filter(Boolean);
+const sameHtml=same.length?`<div class="int" style="background:color-mix(in srgb,#2563eb 10%,var(--card));border-color:#2563eb55;flex-direction:column;align-items:stretch"><b>🔁 نفس الإعلان عند بروكر تاني — قارن السعر</b>${[a,...same].sort((x,y)=>(x.priceNum||9e9)-(y.priceNum||9e9)).map((x,k)=>`<div style="display:flex;justify-content:space-between;gap:8px;font-size:14px;margin-top:4px"><span>${k===0?"🏆 الأرخص: ":""}${src(x).emoji} <bdi style="direction:ltr">${esc(src(x).name)}</bdi></span><b>${fmt(x.priceNum||0)}</b></div>`).join("")}</div>`:"";
+const srcBody=`<p>${esc(a.sourceNote||"")}</p>${(a.extras||[]).map(x=>`<p>${esc(x)}</p>`).join("")}${(a.links||[]).map(l=>`<p>🔗 <a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a></p>`).join("")}${(a.audios||[]).map(u=>{const s2=typeof u==="string"?u:u.src,lb=typeof u==="string"?"الرسالة الصوتية":u.label;return`<p>🎙️ ${esc(lb)}<audio controls src="${esc(s2)}" style="width:100%"></audio></p>`}).join("")}<a href="${wa(a)}" target="_blank" rel="noopener"><button class="btn" style="margin:6px 0 0">💬 كلّم البروكر على واتساب</button></a>`;
+$("db").innerHTML=`<div class="price">${esc(a.price)} <span class="ppm">${ppm(a)}</span></div><div class="meta">${meta(a)}</div><div class="meta">📍 ${esc(a.location)}</div>
+<div class="int"><b>❤️ اهتمامي: ${LV[interest[a.id]||0]}</b>${hearts(a.id,true)}</div>
+${sameHtml}
+${gal}
+${sec("eval","#0d9488","📊 التقييم","رأي Claude",evRow("الفرصة والقيمة",a.deal)+evRow("جودة المنطقة",a.zone)+`<p class="refs">مراجع السعر: <a href="https://aqarmap.com.eg/ar/for-sale/apartment/cairo/el-shorouk/lmntq-lkhms/" target="_blank" rel="noopener">عقارماب</a> · <a href="https://www.propertyfinder.eg/en/plp/buy/apartment-for-sale-cairo-shorouk-city-3rd-area-1st-neighborhood-98003748.html" target="_blank" rel="noopener">بروبرتي فايندر</a> · <a href="https://www.dubizzle.com.eg/maadi-view/q-properties/" target="_blank" rel="noopener">دوبيزل</a></p>`,true)}
+${sec("ess","#f59e0b","📋 المعلومات الأساسية","ناقص "+missing(a).length+" من "+ESS.length,essBody(a),true)}
+${sec("desc","#475569","📝 وصف الإعلان","",`<div class="tags">${(a.features||[]).map(f=>`<span>${esc(f)}</span>`).join("")}</div><div class="desc" id="ds">${esc(a.description)}</div><button class="btn" onclick="navigator.clipboard.writeText($('ds').textContent);this.textContent='تم النسخ ✓'">نسخ الوصف</button>`,true)}
+${sec("notes","#6366f1","🗒️ ملاحظاتي",a.notes?"فيه ملاحظة":"",`<textarea id="nt" rows="3" placeholder="اكتب هنا… بتتحفظ لوحدها" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-family:inherit" onblur="saveNote('${a.id}')">${esc(a.notes||"")}</textarea>`,!!a.notes)}
+${sec("edit","#0ea5e9","✏️ تعديل البيانات","",`${FLD.map(([k,l])=>`<label style="display:block;font-size:13px;margin-top:4px">${l}${k==="description"?`<textarea id="f_${k}" rows="9" style="width:100%;padding:6px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink)">${esc(a[k]??"")}</textarea>`:`<input id="f_${k}" value="${esc(a[k]??"")}" style="width:100%;padding:6px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink)">`}</label>`).join("")}<button class="btn" onclick="saveF('${a.id}')">حفظ</button><button class="btn gray" onclick="resetF('${a.id}')">رجّع الأصل</button>`,false)}
+${sec("src"+a.source,s.color,`${s.emoji} المصدر`,`<bdi style="direction:ltr;unicode-bidi:isolate">${esc(s.name)}</bdi>`,srcBody,false)}`;if(!keep)$("d").showModal()}
+render();
+
+</script>
+</body>
+</html>
