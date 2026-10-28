@@ -182,7 +182,7 @@ function render(){
  const med=a=>a.length?a[Math.floor(a.length/2)]:0;
  $("st").innerHTML=list.length?[["أقل سعر",pr[0]?fmt(pr[0]):"—"],["أعلى سعر",pr.length?fmt(pr[pr.length-1]):"—"],["متوسط سعر المتر",pm.length?fmt(Math.round(med(pm))):"—"],["❤️ مفضلة",list.filter(([a])=>interest[a.id]).length]].map(([k,v])=>`<div class="stat"><b>${v}</b><span>${k}</span></div>`).join(""):"";
  $("g").innerHTML=list.length?list.map(([a,i])=>{const s=src(a),m=missing(a);return`<div class="card" tabindex="0" style="--c:${s.color}" onclick="openL(${i})" onkeydown="if(event.key==='Enter')openL(${i})">
-<div class="ph">${a.photos?.[0]?`<img src="${esc(a.photos[0])}" alt="" loading="lazy">`:`<div class="ph0">📷 مفيش صور لسه</div>`}<div class="hrt">${hearts(a.id,false,true)}</div><div class="bdg">${a.videos?.length?"<span>🎬 فيديو</span>":""}${a.audios?.length?`<span>🎙️ ${a.audios.length}</span>`:""}${a.photos?.length?`<span>📷 ${a.photos.length}</span>`:""}</div></div>
+<div class="ph">${a.photos?.[0]?`<img src="${esc(a.photos[0].replace(/\/p1\.jpg$/,"/t1.jpg"))}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${esc(a.photos[0])}'">`:`<div class="ph0">📷 مفيش صور لسه</div>`}<div class="hrt">${hearts(a.id,false,true)}</div><div class="bdg">${a.videos?.length?"<span>🎬 فيديو</span>":""}${a.audios?.length?`<span>🎙️ ${a.audios.length}</span>`:""}${a.photos?.length?`<span>📷 ${a.photos.length}</span>`:""}</div></div>
 <div class="band"><span>${s.emoji}</span><bdi>${esc(s.name)}</bdi></div>
 <div class="b"><h3>${esc(a.title)}</h3><div class="price">${esc(a.price)} <span class="ppm">${ppm(a)}</span></div>
 <div class="meta">${meta(a)}</div><div class="meta">📍 ${esc(a.location)}</div>
